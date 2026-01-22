@@ -441,12 +441,78 @@ const {
 
 ## 🚢 Deployment
 
-### Option 1: Docker (Recommended)
+### Option 1: Docker (Recommended for Production)
+
+**Using Pre-built Image from GitHub Container Registry:**
+
+```bash
+# Pull the latest version
+docker pull ghcr.io/mayur-chavhan/novobhumi:latest
+
+# Run container
+docker run -d \
+  -p 4173:4173 \
+  --name novobhumi \
+  --restart unless-stopped \
+  ghcr.io/mayur-chavhan/novobhumi:latest
+
+# Or use a specific version
+docker pull ghcr.io/mayur-chavhan/novobhumi:1.0.1
+docker run -d -p 4173:4173 ghcr.io/mayur-chavhan/novobhumi:1.0.1
+```
+
+**Building from Source:**
 
 ```bash
 # Build and run production container
 docker build -t novobhumi:latest .
-docker run -p 4173:4173 novobhumi:latest
+docker run -d -p 4173:4173 --name novobhumi novobhumi:latest
+
+# View logs
+docker logs novobhumi
+
+# Stop container
+docker stop novobhumi
+```
+
+**Production Deployment with Custom Domain:**
+
+The application is configured to work with the following domains:
+- `novobhumi.com`
+- `www.novobhumi.com`
+- `localhost` (for testing)
+
+If you need to add additional domains, update `vite.config.ts`:
+
+```typescript
+preview: {
+  allowedHosts: [
+    'your-domain.com',
+    'www.your-domain.com',
+    // ... other domains
+  ],
+}
+```
+
+**Reverse Proxy Setup (nginx):**
+
+```nginx
+server {
+    listen 80;
+    server_name novobhumi.com www.novobhumi.com;
+
+    location / {
+        proxy_pass http://localhost:4173;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
 ```
 
 ### Option 2: Static Hosting (Netlify, Vercel, Cloudflare Pages)
@@ -483,9 +549,46 @@ npm run build
 }
 ```
 
-### Option 3: GitHub Container Registry
+### Option 3: GitHub Container Registry (Automated)
 
-See [GitHub Actions Workflow](#github-actions) for automated Docker image publishing.
+Docker images are automatically built and published on every push to `main` and on version tags.
+
+**Available Tags:**
+- `latest` - Latest stable version from main branch
+- `main` - Latest commit on main branch
+- `1.0.1`, `1.0`, `1` - Semantic version tags
+- `main-<sha>` - Specific commit from main branch
+
+**Pull and Deploy:**
+
+```bash
+# Pull latest stable
+docker pull ghcr.io/mayur-chavhan/novobhumi:latest
+
+# Pull specific version
+docker pull ghcr.io/mayur-chavhan/novobhumi:1.0.1
+
+# Deploy to production
+docker run -d \
+  -p 80:4173 \
+  --name novobhumi-prod \
+  --restart unless-stopped \
+  ghcr.io/mayur-chavhan/novobhumi:1.0.1
+```
+
+**Auto-Update with Watchtower:**
+
+```bash
+# Automatically update to latest version
+docker run -d \
+  --name watchtower \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower \
+  --interval 300 \
+  novobhumi-prod
+```
+
+See [GitHub Actions Workflow](#github-actions) for more details on automated builds.
 
 ---
 
