@@ -1,0 +1,14 @@
+<svg width="100" height="120" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Monstera-style plant -->
+  <!-- License: Created for Novobhumi project, free to use -->
+  <g opacity="0.3">
+    <!-- Pot -->
+    <rect x="30" y="95" width="40" height="20" rx="3" fill="#78350f"/>
+    <!-- Stems -->
+    <path d="M50 95 Q45 75 40 60" stroke="#15803d" stroke-width="3" fill="none"/>
+    <path d="M50 95 Q55 70 60 50" stroke="#15803d" stroke-width="3" fill="none"/>
+    <!-- Large leaves with splits -->
+    <path d="M40 60 Q20 50 25 35 Q30 40 40 45 Q38 52 40 60" fill="#16a34a"/>
+    <path d="M60 50 Q75 40 78 25 Q70 28 62 35 Q61 42 60 50" fill="#22c55e"/>
+  </g>
+</svg>

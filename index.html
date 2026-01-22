@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Primary SEO Meta Tags -->
@@ -40,13 +40,90 @@
     <meta name="twitter:site" content="@novobhumi" />
     <meta name="twitter:creator" content="@novobhumi" />
 
-    <!-- Additional SEO Tags -->
+    <!-- Mobile Web App Tags (Updated - removed deprecated) -->
     <meta name="theme-color" content="#3d6b3d" />
     <meta name="msapplication-TileColor" content="#3d6b3d" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <meta name="apple-mobile-web-app-title" content="Novobhumi" />
     <meta name="format-detection" content="telephone=no" />
+
+    <!-- Google Search Console Verification -->
+    <!-- Replace GOOGLE_SITE_VERIFICATION with your actual verification code -->
+    <meta name="google-site-verification" content="GOOGLE_SITE_VERIFICATION" />
+
+    <!-- Google Tag Manager -->
+    <!-- Replace GTM-XXXXXXX with your actual GTM container ID -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+
+    <!-- Google Analytics 4 -->
+    <!-- Replace G-XXXXXXXXXX with your actual GA4 measurement ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Google AdSense -->
+    <!-- Replace ca-pub-XXXXXXXXXXXXXXXX with your actual AdSense publisher ID -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <!-- Microsoft Clarity (Alternative analytics) -->
+    <!-- Replace CLARITY_PROJECT_ID with your actual Clarity project ID -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        // Only load if CLARITY_PROJECT_ID is set to an actual ID
+        var clarityId = "CLARITY_PROJECT_ID";
+        if (clarityId && clarityId !== "CLARITY_PROJECT_ID") {
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+clarityId;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        }
+      })(window,document,"clarity","script");
+    </script>
+
+    <!-- Hotjar (Heatmaps & Session Recording) -->
+    <!-- Replace HOTJAR_ID with your actual Hotjar site ID -->
+    <script>
+      (function(h,o,t,j,a,r){
+        // Only load if HOTJAR_ID is set to an actual ID (must be a number)
+        var hotjarId = "HOTJAR_ID";
+        if (hotjarId && hotjarId !== "HOTJAR_ID" && !isNaN(parseInt(hotjarId))) {
+          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+          h._hjSettings={hjid:parseInt(hotjarId),hjsv:6};
+          a=o.getElementsByTagName('head')[0];
+          r=o.createElement('script');r.async=1;
+          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+          a.appendChild(r);
+        }
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <!-- Facebook Pixel -->
+    <!-- Replace FB_PIXEL_ID with your actual Facebook Pixel ID -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      
+      // Only initialize if FB_PIXEL_ID is set to an actual ID
+      var fbPixelId = "FB_PIXEL_ID";
+      if (fbPixelId && fbPixelId !== "FB_PIXEL_ID" && fbPixelId !== null) {
+        fbq('init', fbPixelId);
+        fbq('track', 'PageView');
+      }
+    </script>
 
     <!-- Structured Data: Organization -->
     <script type="application/ld+json">
@@ -55,7 +132,7 @@
       "@type": "Organization",
       "name": "Novobhumi",
       "url": "https://novobhumi.com",
-      "logo": "https://novobhumi.com/images/logo.png",
+      "logo": "https://novobhumi.com/favicon.png",
       "description": "Premium cocopeat products for Indian gardening enthusiasts",
       "address": {
         "@type": "PostalAddress",
@@ -89,159 +166,41 @@
       "publisher": {
         "@type": "Organization",
         "name": "Novobhumi"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://novobhumi.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
       }
     }
     </script>
 
-    <!-- Structured Data: Product (Main Cocopeat Product) -->
+    <!-- Structured Data: Product -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Product",
       "name": "Novobhumi Premium Cocopeat Block",
-      "image": [
-        "https://novobhumi.com/images/cocopeat-product-1.jpg",
-        "https://novobhumi.com/images/cocopeat-product-2.jpg",
-        "https://novobhumi.com/images/cocopeat-product-3.jpg"
-      ],
-      "description": "Premium quality cocopeat block (5kg) that expands to 75 liters. 100% natural, eco-friendly growing medium with superior water retention (8-10x), optimal pH (5.5-6.8), and low EC. Perfect for vegetables, herbs, flowers, and hydroponics.",
+      "image": ["https://novobhumi.com/favicon.png"],
+      "description": "Premium quality cocopeat block (5kg) that expands to 75 liters. 100% natural, eco-friendly growing medium with superior water retention.",
       "sku": "NB-COCO-5KG",
-      "mpn": "NOVOBHUMI5KG",
       "brand": {
         "@type": "Brand",
         "name": "Novobhumi"
       },
-      "manufacturer": {
-        "@type": "Organization",
-        "name": "Novobhumi"
-      },
       "category": "Garden & Outdoors > Gardening > Potting Soil & Growing Media",
-      "material": "Coconut Coir",
-      "weight": {
-        "@type": "QuantitativeValue",
-        "value": "5",
-        "unitCode": "KGM"
-      },
       "offers": {
         "@type": "Offer",
         "url": "https://amzn.in/d/asVswJT",
         "priceCurrency": "INR",
         "price": "349",
-        "priceValidUntil": "2026-12-31",
         "availability": "https://schema.org/InStock",
         "seller": {
           "@type": "Organization",
           "name": "Novobhumi"
-        },
-        "shippingDetails": {
-          "@type": "OfferShippingDetails",
-          "shippingDestination": {
-            "@type": "DefinedRegion",
-            "addressCountry": "IN"
-          },
-          "deliveryTime": {
-            "@type": "ShippingDeliveryTime",
-            "handlingTime": {
-              "@type": "QuantitativeValue",
-              "minValue": 1,
-              "maxValue": 2,
-              "unitCode": "DAY"
-            },
-            "transitTime": {
-              "@type": "QuantitativeValue",
-              "minValue": 2,
-              "maxValue": 5,
-              "unitCode": "DAY"
-            }
-          }
         }
       },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
         "reviewCount": "523",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "Priya Sharma"
-          },
-          "reviewBody": "Best cocopeat I've ever used! My tomatoes and chillies are thriving like never before.",
-          "datePublished": "2025-11-15"
-        },
-        {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "author": {
-            "@type": "Person",
-            "name": "Rajesh Kumar"
-          },
-          "reviewBody": "Premium quality, fast delivery. Perfect pH and EC levels for my orchids.",
-          "datePublished": "2025-10-28"
-        }
-      ],
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "pH Level",
-          "value": "5.5-6.8"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Water Retention",
-          "value": "8-10x weight"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Expansion",
-          "value": "75 liters per 5kg block"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "EC Level",
-          "value": "Low (pre-washed)"
-        }
-      ]
-    }
-    </script>
-
-    <!-- Structured Data: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://novobhumi.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Products",
-          "item": "https://novobhumi.com/#products"
-        }
-      ]
+        "bestRating": "5"
+      }
     }
     </script>
 
@@ -251,7 +210,7 @@
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Novobhumi",
-      "image": "https://novobhumi.com/images/logo.png",
+      "image": "https://novobhumi.com/favicon.png",
       "telephone": "+91-9226202224",
       "email": "support@novobhumi.com",
       "address": {
@@ -266,13 +225,7 @@
         "latitude": 18.5204,
         "longitude": 73.8567
       },
-      "priceRange": "$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      }
+      "priceRange": "$$"
     }
     </script>
 
@@ -287,7 +240,7 @@
           "name": "What is cocopeat and how is it made?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cocopeat (coco coir) is a natural growing medium made from coconut husks. The fibrous material between the shell and outer coating of a coconut is processed, washed, and dried to create a sustainable alternative to peat moss. Novobhumi's cocopeat is carefully processed to ensure optimal pH (5.5-6.8) and low EC levels."
+            "text": "Cocopeat (coco coir) is a natural growing medium made from coconut husks. Novobhumi's cocopeat is carefully processed to ensure optimal pH (5.5-6.8) and low EC levels."
           }
         },
         {
@@ -295,7 +248,7 @@
           "name": "How much water does cocopeat retain?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Novobhumi premium cocopeat can hold 8-10 times its weight in water while maintaining excellent drainage. This means you need to water your plants less frequently, typically every 3-4 days depending on conditions."
+            "text": "Novobhumi premium cocopeat can hold 8-10 times its weight in water while maintaining excellent drainage."
           }
         },
         {
@@ -303,7 +256,7 @@
           "name": "Can cocopeat be reused?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes! Novobhumi cocopeat can be reused for 3-5 growing cycles with proper treatment. Simply sterilize it by sun-drying or baking, then rehydrate before use. This makes it a cost-effective and eco-friendly choice."
+            "text": "Yes! Novobhumi cocopeat can be reused for 3-5 growing cycles with proper treatment."
           }
         }
       ]
@@ -311,6 +264,15 @@
     </script>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- Facebook Pixel (noscript) -->
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.net/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

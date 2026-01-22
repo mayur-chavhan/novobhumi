@@ -1,0 +1,15 @@
+<svg width="70" height="130" viewBox="0 0 70 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Garden rake -->
+  <g opacity="0.3">
+    <!-- Handle -->
+    <rect x="32" y="5" width="6" height="85" rx="3" fill="#78350f"/>
+    <!-- Rake head -->
+    <rect x="15" y="90" width="40" height="6" rx="2" fill="#57534e"/>
+    <!-- Rake teeth -->
+    <rect x="18" y="96" width="3" height="12" fill="#78716c"/>
+    <rect x="26" y="96" width="3" height="12" fill="#78716c"/>
+    <rect x="34" y="96" width="3" height="12" fill="#78716c"/>
+    <rect x="42" y="96" width="3" height="12" fill="#78716c"/>
+    <rect x="50" y="96" width="3" height="12" fill="#78716c"/>
+  </g>
+</svg>

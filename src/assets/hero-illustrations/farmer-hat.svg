@@ -1,0 +1,13 @@
+<svg width="80" height="70" viewBox="0 0 80 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Farmer's straw hat -->
+  <g opacity="0.3">
+    <!-- Hat brim -->
+    <ellipse cx="40" cy="45" rx="35" ry="8" fill="#d97706"/>
+    <ellipse cx="40" cy="45" rx="32" ry="6" fill="#f59e0b"/>
+    <!-- Hat crown -->
+    <ellipse cx="40" cy="30" rx="20" ry="18" fill="#f59e0b"/>
+    <ellipse cx="40" cy="28" rx="18" ry="16" fill="#fbbf24"/>
+    <!-- Hat band -->
+    <rect x="22" y="38" width="36" height="4" rx="2" fill="#78350f"/>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg width="110" height="80" viewBox="0 0 110 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Watering can -->
+  <!-- License: Created for Novobhumi project, free to use -->
+  <g opacity="0.3">
+    <!-- Spout -->
+    <path d="M15 35 Q10 32 8 30 L5 32 Q8 38 15 40 Z" fill="#78350f"/>
+    <!-- Can body -->
+    <rect x="15" y="30" width="50" height="35" rx="5" fill="#92400e"/>
+    <!-- Handle -->
+    <path d="M65 35 Q75 30 75 45 Q75 55 65 50" stroke="#78350f" stroke-width="4" fill="none"/>
+    <!-- Spout holes -->
+    <circle cx="7" cy="28" r="1.5" fill="#a8a29e"/>
+    <circle cx="7" cy="33" r="1.5" fill="#a8a29e"/>
+    <circle cx="7" cy="38" r="1.5" fill="#a8a29e"/>
+    <!-- Water drops -->
+    <circle cx="3" cy="25" r="2" fill="#3b82f6" opacity="0.6"/>
+    <circle cx="5" cy="42" r="2" fill="#3b82f6" opacity="0.6"/>
+  </g>
+</svg>
