@@ -1,49 +1,25 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import ScrollToHash from "./components/ScrollToHash";
-import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
-import Contact from "./pages/Contact";
-import GardeningTips from "./pages/GardeningTips";
-import HowToUse from "./pages/HowToUse";
-import FAQ from "./pages/FAQ";
-import Blog from "./pages/Blog";
-import Benefits from "./pages/Benefits";
-import MayurAdmin from "./pages/MayurAdmin";
+import { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
+import ScrollToHash from "./components/layout/ScrollToHash";
 import { ConfigProvider } from "./context/ConfigContext";
-import { AuthProvider } from "./context/AuthContext";
 
-function AppContent() {
-  const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/mayur-admin');
+// Lazy load pages for better initial load performance
+const Home = lazy(() => import("./pages/Home"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Contact = lazy(() => import("./pages/Contact"));
+const GardeningTips = lazy(() => import("./pages/GardeningTips"));
+const HowToUse = lazy(() => import("./pages/HowToUse"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Benefits = lazy(() => import("./pages/Benefits"));
 
-  if (isAdminRoute) {
-    return (
-      <AuthProvider>
-        <Routes>
-          <Route path="/mayur-admin" element={<MayurAdmin />} />
-        </Routes>
-      </AuthProvider>
-    );
-  }
-
+// Loading fallback component
+function PageLoader() {
   return (
-    <div className="min-h-screen bg-gradient-earth">
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/benefits" element={<Benefits />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/tips" element={<GardeningTips />} />
-          <Route path="/how-to-use" element={<HowToUse />} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/blog" element={<Blog />} />
-        </Routes>
-        <Footer />
-      </main>
+    <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="h-12 w-12 animate-spin rounded-full border-4 border-primary-200 border-t-primary-600" />
     </div>
   );
 }
@@ -53,7 +29,24 @@ function App() {
     <ConfigProvider>
       <Router>
         <ScrollToHash />
-        <AppContent />
+        <div className="min-h-screen bg-gradient-earth">
+          <Navbar />
+          <main>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/benefits" element={<Benefits />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/tips" element={<GardeningTips />} />
+                <Route path="/how-to-use" element={<HowToUse />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/blog" element={<Blog />} />
+              </Routes>
+            </Suspense>
+            <Footer />
+          </main>
+        </div>
       </Router>
     </ConfigProvider>
   );

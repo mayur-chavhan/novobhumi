@@ -2,69 +2,33 @@
 .git
 .gitignore
 
-# Dependencies (will be installed in container)
+# Dependencies (installed in container)
 node_modules
-backend/node_modules
 
-# Build outputs (will be built in container)
+# Build (built in container)
 dist
-backend/dist
-build
 
-# Environment files
+# Environment
 .env
 .env.local
-.env.*.local
 
-# Documentation (not needed in container)
-docs/
-*.md
-!README.md
-
-# Tests
-tests/
-coverage/
-.nyc_output/
-
-# IDE
-.vscode/
-.idea/
+# Editor/IDE
+.vscode
+.idea
 *.swp
-*.swo
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Docker (prevent recursive inclusion)
-docker-compose*.yml
-Dockerfile*
+# Logs
+*.log
+
+# Docker files
+docker-compose*.yaml
+Dockerfile
 .dockerignore
 
-# Development files
-*.log
-npm-debug.log*
-backups/
-
-# Scripts (not needed in container)
-scripts/
-
-# GitHub
-.github/
-
-# Replit
-.replit
-replit.md
-replit.nix
-.cache/
-.config/
-.upm/
-.local/
-
-# Misc
-*.pem
-*.key
-tmp/
-temp/
-attached_assets/
-openspec/
+# Development
+.claude
+.opencode
