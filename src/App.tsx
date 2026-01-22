@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import ScrollToHash from "./components/layout/ScrollToHash";
+import { ScrollToTop } from "./components/common/ScrollToTop";
 import { ConfigProvider } from "./context/ConfigContext";
 
 // Lazy load pages for better initial load performance
@@ -46,6 +47,8 @@ function App() {
             </Suspense>
             <Footer />
           </main>
+          {/* Scroll to top button - shown after scrolling 400px */}
+          <ScrollToTop />
         </div>
       </Router>
     </ConfigProvider>
