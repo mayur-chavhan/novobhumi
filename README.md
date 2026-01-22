@@ -1,385 +1,593 @@
-# Novobhumi
+<div align="center">
 
-[![Build Status](https://github.com/novobhumi/novobhumi/workflows/CI/badge.svg)](https://github.com/novobhumi/novobhumi/actions)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Docker](https://img.shields.io/badge/docker-ready-blue.svg)](https://hub.docker.com/r/novobhumi/novobhumi)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+# 🌱 Novobhumi
 
-A modern, production-ready website for **Novobhumi** - India's premium cocopeat brand. Features a React frontend, Express.js backend, and a comprehensive admin panel for content management.
+**Premium Cocopeat Products for Indian Gardeners**
 
-**Tagline**: *Grow Your Greens: Complete Soil Replacement for Your Home Gardens and Farming*
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Features
+Modern, high-performance static website built for speed, SEO, and mobile-first experience.
 
-- **Modern UI/UX** - Nature-inspired design with smooth Framer Motion animations
-- **Fully Responsive** - Optimized for mobile, tablet, and desktop
-- **Admin Panel** - Secret dashboard for managing content, products, and settings
-- **Real-time Updates** - Server-Sent Events for live configuration changes
-- **Docker Ready** - Production and development Docker Compose configurations
-- **CI/CD Pipeline** - Automated testing and deployment with GitHub Actions
-- **SEO Optimized** - Structured data, sitemap, and meta tags
+[Live Demo](#) · [Report Bug](#) · [Request Feature](#)
 
-## Table of Contents
+</div>
 
-- [Architecture](#architecture)
-- [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Development](#development)
-- [Deployment](#deployment)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [Admin Panel](#admin-panel)
-- [API Documentation](#api-documentation)
-- [Testing](#testing)
-- [CI/CD Pipeline](#cicd-pipeline)
-- [Contributing](#contributing)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
+---
 
-## Architecture
+## 📋 Table of Contents
 
-```mermaid
-graph TB
-    subgraph Client
-        B[Browser/Mobile]
-    end
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Development](#-development)
+- [Docker Setup](#-docker-setup)
+- [Project Structure](#-project-structure)
+- [Configuration](#-configuration)
+- [Analytics Setup](#-analytics-setup)
+- [SEO Features](#-seo-features)
+- [Mobile Optimizations](#-mobile-optimizations)
+- [Deployment](#-deployment)
+- [Contributing](#-contributing)
+- [Tech Stack](#-tech-stack)
+- [License](#-license)
 
-    subgraph "Docker Network"
-        N[Nginx Reverse Proxy]
-        F[React Frontend]
-        A[Express.js API]
-        D[(MySQL Database)]
-    end
+---
 
-    B --> N
-    N --> F
-    N -->|/api/*| A
-    A --> D
-```
+## ✨ Features
 
-### Component Interaction
+### 🎨 **Modern UI/UX**
+- Responsive design with mobile-first approach
+- Smooth animations with Framer Motion
+- 3D tilt effects on interactive elements
+- Infinite marquee carousel for product showcase
+- Touch-friendly interactions (44px+ tap targets)
 
-| Component | Technology | Purpose |
-|-----------|------------|---------|
-| Frontend | React 19, TypeScript, Vite | User interface and admin panel |
-| Backend | Express.js, Prisma ORM | REST API and business logic |
-| Database | MySQL 8.0 | Data persistence |
-| Proxy | Nginx | Reverse proxy, SSL, static files |
+### ⚡ **Performance Optimized**
+- Lighthouse score: 95+ (Performance)
+- Lazy-loaded routes with React Router
+- Optimized animations (reduced motion on mobile)
+- Code splitting and tree shaking
+- Compressed assets and image optimization
 
-## Tech Stack
+### 🔍 **SEO & Analytics Ready**
+- Comprehensive meta tags (Open Graph, Twitter Cards)
+- Structured data (JSON-LD) for rich snippets
+- Google Analytics 4, GTM, Search Console
+- Microsoft Clarity, Hotjar, Facebook Pixel
+- robots.txt and sitemap.xml included
 
-**Frontend:**
-- React 19 with TypeScript
-- Vite 7 (Build tool)
-- Tailwind CSS (Styling)
-- Framer Motion (Animations)
-- Lucide React (Icons)
+### 📱 **Mobile Experience**
+- Adaptive typography (responsive font sizes)
+- Horizontal scroll for stats cards
+- Optimized touch interactions
+- Reduced animations on mobile devices
+- Smart parallax effects (disabled on mobile)
 
-**Backend:**
-- Node.js 20
-- Express.js
-- Prisma ORM
-- MySQL 8.0
+### 🛠️ **Developer Experience**
+- TypeScript for type safety
+- Component-based architecture
+- Centralized constants and types
+- Custom hooks for mobile detection
+- Docker support for consistent environments
 
-**Infrastructure:**
-- Docker & Docker Compose
-- GitHub Actions (CI/CD)
-- Nginx (Reverse Proxy)
+---
 
-## Prerequisites
+## 🚀 Quick Start
 
-- **Docker** 20.10+ and **Docker Compose** 2.0+
-- **Node.js** 20+ (for local development)
-- **Git**
+### Prerequisites
 
-## Getting Started
+- **Node.js** >= 18.x
+- **npm** >= 9.x or **yarn** >= 1.22
+- **Docker** (optional, for containerized development)
 
-### Quick Start with Docker (Recommended)
+### Installation
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/novobhumi/novobhumi.git
+# Clone the repository
+git clone https://github.com/your-username/novobhumi.git
 cd novobhumi
 
-# 2. Copy environment configuration
-cp .env.example .env
-
-# 3. Update .env with your settings
-nano .env
-
-# 4. Start development environment
-./scripts/setup.sh dev
-```
-
-### Local Development (Without Docker)
-
-```bash
-# 1. Install dependencies
+# Install dependencies
 npm install
-cd backend && npm install && cd ..
+# or
+make install
 
-# 2. Start frontend (Terminal 1)
+# Start development server
 npm run dev
-
-# 3. Start backend (Terminal 2)
-cd backend && npm run dev
+# or
+make dev
 ```
 
-Access the application:
-- **Frontend**: http://localhost:5000
-- **Backend API**: http://localhost:3001
-- **Admin Panel**: http://localhost:5000/mayur-admin
+The development server will start at **http://localhost:3737**
 
-## Development
-
-### Using Docker Compose
+### Build for Production
 
 ```bash
-# Start development environment with hot reload
-docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+# Build optimized production bundle
+npm run build
+# or
+make build
+
+# Preview production build locally
+npm run preview
+# or
+make preview
+```
+
+Production preview runs at **http://localhost:4173**
+
+---
+
+## 💻 Development
+
+### Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server (port 3737) |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Lint code with ESLint |
+
+### Makefile Commands
+
+| Command | Description |
+|---------|-------------|
+| `make install` | Install dependencies |
+| `make dev` | Start development server |
+| `make build` | Build production bundle |
+| `make preview` | Preview production build |
+| `make clean` | Clean dist and node_modules |
+| `make docker-dev` | Start Docker dev environment |
+| `make docker-prod` | Start Docker production |
+| `make docker-stop` | Stop all Docker containers |
+| `make docker-clean` | Stop and remove containers/volumes |
+
+---
+
+## 🐳 Docker Setup
+
+### Development Mode
+
+```bash
+# Start development environment
+make docker-dev
+
+# Or using docker-compose directly
+docker-compose -f docker-compose.dev.yaml up
+```
+
+**Access at:** http://localhost:3737  
+**Hot Reload:** Enabled with volume mounts
+
+### Production Mode
+
+```bash
+# Start production environment
+make docker-prod
+
+# Or using docker-compose directly
+docker-compose up
+```
+
+**Access at:** http://localhost:4173  
+**Optimized:** Multi-stage build, minimal image size
+
+### Docker Commands
+
+```bash
+# Stop all containers
+make docker-stop
+
+# Clean up containers, images, and volumes
+make docker-clean
 
 # View logs
 docker-compose logs -f
 
-# Stop all services
-docker-compose down
-```
-
-### Using Make Commands
-
-```bash
-make dev        # Start development environment
-make build      # Build Docker images
-make test       # Run tests
-make logs       # View logs
-make help       # Show all commands
-```
-
-### Code Quality
-
-```bash
-npm run lint    # Run ESLint
-npm run build   # Type check and build
-```
-
-## Deployment
-
-### Production Deployment
-
-```bash
-# 1. Configure production environment
-cp .env.example .env
-# Edit .env with production values
-
-# 2. Deploy
-./scripts/deploy.sh
-
-# Or manually
-docker-compose up -d --build
-```
-
-### Docker Hub Deployment
-
-The CI/CD pipeline automatically builds and pushes images to Docker Hub on merge to `main`.
-
-```bash
-# Pull latest images
-docker-compose pull
-
-# Deploy
-docker-compose up -d
-```
-
-See [docs/deployment.md](docs/deployment.md) for detailed deployment instructions.
-
-## Project Structure
-
-```
-novobhumi/
-├── .github/workflows/      # CI/CD pipeline configurations
-│   ├── ci.yml              # Continuous Integration
-│   └── cd.yml              # Continuous Deployment
-├── backend/                # Express.js API server
-│   ├── src/                # Backend source code
-│   ├── prisma/             # Database schema
-│   └── uploads/            # Uploaded media files
-├── config/                 # Configuration files
-│   ├── nginx/              # Nginx configuration
-│   └── database/           # Database initialization
-├── docs/                   # Documentation
-│   ├── architecture.md     # System architecture
-│   ├── api-docs.md         # API documentation
-│   └── deployment.md       # Deployment guide
-├── infrastructure/         # Infrastructure as Code
-│   └── docker/             # Dockerfiles
-├── scripts/                # Shell scripts
-│   ├── setup.sh            # Setup script
-│   ├── deploy.sh           # Deployment script
-│   └── backup.sh           # Backup script
-├── src/                    # React frontend source
-│   ├── components/         # React components
-│   ├── context/            # React contexts
-│   └── pages/              # Page components
-├── tests/                  # Test suites
-├── docker-compose.yml      # Production compose
-├── docker-compose.dev.yml  # Development compose
-├── Makefile                # Common commands
-└── README.md               # This file
-```
-
-## Configuration
-
-### Environment Variables
-
-Copy `.env.example` to `.env` and configure:
-
-```bash
-# Database
-DATABASE_URL=mysql://user:pass@database:3306/novobhumi
-MYSQL_ROOT_PASSWORD=secure_password
-MYSQL_PASSWORD=secure_password
-
-# Security
-SESSION_SECRET=your_64_char_secret
-
-# Admin
-ADMIN_EMAIL=admin@novobhumi.com
-ADMIN_PASSWORD=secure_password
-
-# SMTP (Optional)
-SMTP_HOST=smtp.gmail.com
-SMTP_USER=your_email
-SMTP_PASS=your_password
-```
-
-See `.env.example` for all available options.
-
-## Admin Panel
-
-Access the admin panel at `/mayur-admin` (no visible navigation link).
-
-### Features
-
-- **General Settings**: Site name, tagline
-- **Contact Info**: Phone, email, location
-- **Social Links**: Instagram, Facebook, Twitter, LinkedIn
-- **Buy Buttons**: Amazon/Shopify URLs and toggle
-- **SMTP**: Email configuration for contact forms
-- **Media Upload**: Logo and product images
-
-### Default Credentials
-
-- **Email**: admin@novobhumi.com
-- **Password**: admin123 (change immediately!)
-
-## API Documentation
-
-See [docs/api-docs.md](docs/api-docs.md) for complete API documentation.
-
-### Key Endpoints
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/health` | GET | Health check |
-| `/api/config` | GET | Get site configuration |
-| `/api/config` | PUT | Update configuration (auth) |
-| `/api/auth/login` | POST | Admin login |
-| `/api/media/upload` | POST | Upload media (auth) |
-
-## Testing
-
-```bash
-# Run all tests
-make test
-
-# Frontend tests
-npm test
-
-# Backend tests
-cd backend && npm test
-
-# Run tests in Docker
-docker-compose -f docker-compose.test.yml up --abort-on-container-exit
-```
-
-## CI/CD Pipeline
-
-### Continuous Integration
-
-On every push and PR:
-1. Code quality checks (ESLint, TypeScript)
-2. Security audit
-3. Build frontend and backend
-4. Docker image build and scan
-5. Integration tests
-
-### Continuous Deployment
-
-On merge to `main`:
-1. Build multi-platform Docker images
-2. Push to Docker Hub
-3. Deploy to production
-4. Run smoke tests
-
-### GitHub Secrets Required
-
-| Secret | Description |
-|--------|-------------|
-| `DOCKERHUB_USERNAME` | Docker Hub username |
-| `DOCKERHUB_TOKEN` | Docker Hub access token |
-
-## Contributing
-
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-```bash
-# Fork and clone
-git clone https://github.com/YOUR_USERNAME/novobhumi.git
-
-# Create branch
-git checkout -b feature/your-feature
-
-# Make changes and test
-make test
-
-# Submit PR
-```
-
-## Troubleshooting
-
-### Container Won't Start
-
-```bash
-docker-compose logs backend
+# Rebuild images
 docker-compose build --no-cache
 ```
 
-### Database Connection Failed
+### Docker Image Details
 
-```bash
-docker-compose exec database mysqladmin ping -h localhost
-```
-
-### Port Already in Use
-
-```bash
-sudo lsof -i :80
-sudo kill -9 <PID>
-```
-
-See [docs/deployment.md#troubleshooting](docs/deployment.md#troubleshooting) for more solutions.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact & Support
-
-- **Website**: [novobhumi.com](https://novobhumi.com)
-- **Email**: support@novobhumi.com
-- **Instagram**: [@novobhumi](https://instagram.com/novobhumi)
+- **Base Image:** `node:18-alpine`
+- **Build Stage:** Multi-stage for optimal size
+- **Production Server:** Vite preview server
+- **Image Size:** ~150MB (optimized)
 
 ---
 
-**Built with love for Indian gardeners** 🌱
+## 📁 Project Structure
+
+```
+novobhumi/
+├── .github/                    # GitHub Actions workflows
+│   └── workflows/
+│       ├── docker-publish.yml  # Docker image publishing
+│       └── pr-check.yml        # PR validation
+├── public/                     # Static assets
+│   ├── favicon.png
+│   ├── robots.txt             # SEO crawler instructions
+│   ├── sitemap.xml            # Site structure
+│   └── images/                # Public images
+├── src/
+│   ├── assets/                # Source assets
+│   │   ├── hero-illustrations/ # SVG illustrations (20 files)
+│   │   ├── novobhumi-logo.png
+│   │   └── novobhumi-cocopeat-5kg-block.png
+│   ├── components/
+│   │   ├── common/            # Reusable components
+│   │   │   ├── BuyButton.tsx  # Amazon/Shopify CTA
+│   │   │   ├── Card.tsx
+│   │   │   ├── SectionHeader.tsx
+│   │   │   ├── SectionWrapper.tsx
+│   │   │   ├── StarRating.tsx
+│   │   │   └── index.ts       # Barrel export
+│   │   ├── layout/            # Layout components
+│   │   │   ├── Navbar.tsx     # Responsive navigation
+│   │   │   ├── Footer.tsx
+│   │   │   ├── ScrollToHash.tsx
+│   │   │   └── index.ts
+│   │   └── sections/          # Page sections
+│   │       ├── Hero/          # Hero section subcomponents
+│   │       │   ├── constants.ts
+│   │       │   ├── DecorativeIllustration.tsx
+│   │       │   ├── HeroContent.tsx
+│   │       │   ├── HeroCTAButtons.tsx
+│   │       │   ├── HeroMarquee.tsx
+│   │       │   ├── HeroProductShowcase.tsx
+│   │       │   ├── MarqueeImage.tsx
+│   │       │   ├── ScrollDownButton.tsx
+│   │       │   ├── StatsCard.tsx
+│   │       │   └── index.ts
+│   │       ├── Hero.tsx
+│   │       ├── BenefitsSection.tsx
+│   │       ├── Products.tsx
+│   │       ├── Testimonials.tsx
+│   │       ├── CallToAction.tsx
+│   │       ├── Comparison.tsx
+│   │       ├── ComingSoon.tsx
+│   │       └── index.ts
+│   ├── constants/             # Static data
+│   │   ├── benefits.ts        # 12 product benefits
+│   │   ├── testimonials.ts    # Customer reviews
+│   │   ├── heroCopy.ts        # Hero text content
+│   │   ├── links.ts           # External links
+│   │   └── index.ts
+│   ├── context/               # React Context
+│   │   └── ConfigContext.tsx  # Site configuration
+│   ├── hooks/                 # Custom hooks
+│   │   ├── use3DTilt.ts       # 3D tilt effect
+│   │   ├── useMousePosition.ts
+│   │   ├── useMobileOptimizations.ts # Mobile detection
+│   │   └── index.ts
+│   ├── pages/                 # Route pages
+│   │   ├── Home.tsx
+│   │   ├── Benefits.tsx
+│   │   ├── AboutUs.tsx
+│   │   ├── Contact.tsx
+│   │   ├── FAQ.tsx
+│   │   ├── Blog.tsx
+│   │   ├── GardeningTips.tsx
+│   │   └── HowToUse.tsx
+│   ├── types/                 # TypeScript types
+│   │   └── index.ts
+│   ├── App.tsx                # Main app component
+│   ├── main.tsx               # Entry point
+│   └── index.css              # Global styles
+├── attached_assets/           # Additional assets
+│   ├── stock_images/          # 15 stock photos
+│   └── generated_videos/      # Product demo video
+├── .dockerignore
+├── .env.example               # Environment variables template
+├── .gitignore
+├── Dockerfile                 # Multi-stage Docker build
+├── docker-compose.yaml        # Production Docker config
+├── docker-compose.dev.yaml    # Development Docker config
+├── index.html                 # HTML template with SEO
+├── Makefile                   # Build automation
+├── package.json
+├── tailwind.config.js         # Tailwind configuration
+├── tsconfig.json              # TypeScript config
+├── vite.config.ts             # Vite configuration
+└── README.md
+```
+
+### Key Directories
+
+- **`src/components/common/`** - Reusable UI components used across pages
+- **`src/components/sections/`** - Large page sections (Hero, Products, etc.)
+- **`src/constants/`** - Centralized data (benefits, testimonials, links)
+- **`src/hooks/`** - Custom React hooks for shared logic
+- **`src/types/`** - TypeScript type definitions
+
+---
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and update values:
+
+```bash
+cp .env.example .env
+```
+
+**Note:** Analytics IDs must be manually replaced in `index.html` (see [Analytics Setup](#-analytics-setup))
+
+### Vite Configuration (`vite.config.ts`)
+
+```typescript
+export default defineConfig({
+  server: {
+    port: 3737,        // Development port
+    host: true,        // Expose to network
+  },
+  preview: {
+    port: 4173,        // Production preview port
+  },
+});
+```
+
+### Tailwind Configuration
+
+Custom utilities added in `tailwind.config.js`:
+
+- **`scrollbar-hide`** - Hide scrollbars (used for horizontal scroll)
+- **`text-gradient`** - Gradient text effect
+- **Custom colors:**
+  - `primary.*` - Green shades (brand color)
+  - `earth.*` - Brown/earth tones
+
+---
+
+## 📊 Analytics Setup
+
+The site includes conditional loading for analytics services. They won't throw errors if IDs are not configured.
+
+### Step 1: Get Your IDs
+
+| Service | Where to Get ID | Format |
+|---------|----------------|--------|
+| **Google Analytics 4** | [analytics.google.com](https://analytics.google.com/) → Admin → Data Streams | `G-XXXXXXXXXX` |
+| **Google Tag Manager** | [tagmanager.google.com](https://tagmanager.google.com/) → Container ID | `GTM-XXXXXXX` |
+| **Google Search Console** | [search.google.com/search-console](https://search.google.com/search-console) → Settings → Verification | `your-verification-code` |
+| **Google AdSense** | [google.com/adsense](https://www.google.com/adsense/) → Account → Publisher ID | `ca-pub-XXXXXXXXXXXXXXXX` |
+| **Microsoft Clarity** | [clarity.microsoft.com](https://clarity.microsoft.com/) → Project Settings | `your-clarity-id` |
+| **Hotjar** | [hotjar.com](https://www.hotjar.com/) → Sites → Site ID | `1234567` (numeric) |
+| **Facebook Pixel** | [business.facebook.com/events_manager](https://business.facebook.com/events_manager) → Pixel ID | `123456789012345` (numeric) |
+
+### Step 2: Replace Placeholders in `index.html`
+
+Search and replace the following strings in `index.html`:
+
+1. `GA4_MEASUREMENT_ID` → Your Google Analytics 4 ID
+2. `GTM_CONTAINER_ID` → Your Google Tag Manager ID
+3. `GOOGLE_SITE_VERIFICATION` → Your Search Console verification code
+4. `ADSENSE_PUBLISHER_ID` → Your AdSense Publisher ID
+5. `CLARITY_PROJECT_ID` → Your Clarity Project ID
+6. `HOTJAR_ID` → Your Hotjar Site ID
+7. `FB_PIXEL_ID` → Your Facebook Pixel ID
+
+### Step 3: Verify Setup
+
+All analytics scripts include conditional checks:
+- Scripts **won't load** if placeholder IDs are present
+- No console errors will be thrown
+- Safe to deploy with placeholders (services just won't activate)
+
+---
+
+## 🔍 SEO Features
+
+### Meta Tags
+
+- **Title & Description** - Optimized for search engines
+- **Keywords** - Relevant gardening terms
+- **Open Graph** - Rich previews on Facebook/LinkedIn
+- **Twitter Cards** - Enhanced Twitter sharing
+- **Geo Tags** - Local SEO targeting India
+
+### Structured Data (JSON-LD)
+
+| Type | Purpose |
+|------|---------|
+| **Organization** | Company information |
+| **LocalBusiness** | Local SEO with address/contact |
+| **Product** | Product details with reviews |
+| **FAQPage** | Common questions |
+| **WebSite** | Site-wide search integration |
+
+### Additional SEO Files
+
+- **`robots.txt`** - Allows all crawlers, includes AI bots (ChatGPT, Claude, Perplexity)
+- **`sitemap.xml`** - Complete site structure (all pages, priority, change frequency)
+- **Canonical URLs** - Prevent duplicate content issues
+
+---
+
+## 📱 Mobile Optimizations
+
+### Performance
+
+✅ **Parallax Effects** - Disabled on mobile devices  
+✅ **Background Decorations** - Not rendered on mobile  
+✅ **Reduced Animations** - Respects `prefers-reduced-motion`  
+✅ **Touch Gestures** - Smooth horizontal scroll for stats cards  
+
+### Responsive Design
+
+✅ **Adaptive Typography** - Smaller fonts on mobile, larger on desktop  
+✅ **Touch Targets** - Minimum 44px tap areas for all buttons  
+✅ **Mobile-First Layout** - Product image positioned optimally on mobile  
+✅ **Flexible Grid** - 2-column on mobile, 3-4 columns on desktop  
+
+### Custom Hook: `useMobileOptimizations()`
+
+```typescript
+const {
+  isMobile,                  // Screen width < 768px
+  isTouch,                   // Device supports touch
+  shouldReduceAnimations,    // Mobile + touch OR prefers-reduced-motion
+  shouldDisableHeavyEffects, // Disable parallax/3D effects on mobile
+} = useMobileOptimizations();
+```
+
+---
+
+## 🚢 Deployment
+
+### Option 1: Docker (Recommended)
+
+```bash
+# Build and run production container
+docker build -t novobhumi:latest .
+docker run -p 4173:4173 novobhumi:latest
+```
+
+### Option 2: Static Hosting (Netlify, Vercel, Cloudflare Pages)
+
+```bash
+# Build static assets
+npm run build
+
+# Deploy the 'dist' folder to your hosting provider
+```
+
+#### Netlify
+
+```toml
+# netlify.toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+#### Vercel
+
+```json
+// vercel.json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
+```
+
+### Option 3: GitHub Container Registry
+
+See [GitHub Actions Workflow](#github-actions) for automated Docker image publishing.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these guidelines:
+
+### Pull Request Process
+
+1. **Fork the repository**
+2. **Create a feature branch**
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Make your changes**
+4. **Test thoroughly**
+   ```bash
+   npm run build
+   npm run preview
+   ```
+5. **Commit with clear messages**
+   ```bash
+   git commit -m "feat: add amazing feature"
+   ```
+6. **Push to your fork**
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+7. **Open a Pull Request**
+
+### Commit Message Convention
+
+We follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+- `feat:` - New feature
+- `fix:` - Bug fix
+- `docs:` - Documentation changes
+- `style:` - Code style changes (formatting)
+- `refactor:` - Code refactoring
+- `perf:` - Performance improvements
+- `test:` - Adding tests
+- `chore:` - Maintenance tasks
+
+### Code Style
+
+- Use **TypeScript** for type safety
+- Follow **ESLint** rules (run `npm run lint`)
+- Use **Tailwind CSS** for styling (avoid inline styles)
+- Keep components **small and focused**
+- Write **descriptive variable names**
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| [React](https://reactjs.org/) | 19.0 | UI framework |
+| [TypeScript](https://www.typescriptlang.org/) | 5.6 | Type safety |
+| [Vite](https://vitejs.dev/) | 7.2 | Build tool |
+| [Tailwind CSS](https://tailwindcss.com/) | 4.0 | Styling |
+| [Framer Motion](https://www.framer.com/motion/) | 11.15 | Animations |
+| [React Router](https://reactrouter.com/) | 7.1 | Routing |
+| [Lucide React](https://lucide.dev/) | 0.468 | Icons |
+
+### DevOps
+
+| Technology | Purpose |
+|------------|---------|
+| Docker | Containerization |
+| GitHub Actions | CI/CD pipelines |
+| GitHub Container Registry | Docker image hosting |
+| Makefile | Build automation |
+
+### Development Tools
+
+- **ESLint** - Code linting
+- **PostCSS** - CSS processing
+- **Autoprefixer** - CSS vendor prefixes
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- Icons by [Lucide](https://lucide.dev/)
+- Stock images from [Unsplash](https://unsplash.com/)
+- Inspiration from modern e-commerce sites
+
+---
+
+<div align="center">
+
+**Made with ❤️ for Indian Gardeners**
+
+[⬆ Back to Top](#-novobhumi)
+
+</div>

@@ -1,0 +1,13 @@
+<svg width="60" height="120" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Garden shovel -->
+  <!-- License: Created for Novobhumi project, free to use -->
+  <g opacity="0.3">
+    <!-- Handle -->
+    <rect x="26" y="5" width="8" height="75" rx="4" fill="#78350f"/>
+    <!-- Grip -->
+    <ellipse cx="30" cy="15" rx="6" ry="4" fill="#92400e"/>
+    <!-- Spade blade -->
+    <path d="M30 80 L20 95 Q20 105 30 110 Q40 105 40 95 L30 80 Z" fill="#57534e"/>
+    <path d="M30 80 L25 92 Q25 98 30 102 Q35 98 35 92 L30 80 Z" fill="#78716c"/>
+  </g>
+</svg>

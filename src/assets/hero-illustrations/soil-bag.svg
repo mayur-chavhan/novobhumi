@@ -1,0 +1,18 @@
+<svg width="90" height="110" viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Soil/cocopeat bag -->
+  <!-- License: Created for Novobhumi project, free to use -->
+  <g opacity="0.25">
+    <!-- Bag body -->
+    <path d="M20 30 L15 95 Q15 100 20 102 L70 102 Q75 100 75 95 L70 30 Z" fill="#78350f"/>
+    <rect x="20" y="30" width="50" height="70" fill="#92400e" rx="2"/>
+    <!-- Top seal -->
+    <rect x="25" y="25" width="40" height="8" rx="2" fill="#57534e"/>
+    <!-- Branding lines -->
+    <line x1="30" y1="50" x2="60" y2="50" stroke="#d97706" stroke-width="2"/>
+    <line x1="30" y1="60" x2="60" y2="60" stroke="#d97706" stroke-width="2"/>
+    <!-- Soil texture -->
+    <circle cx="35" cy="75" r="2" fill="#451a03" opacity="0.5"/>
+    <circle cx="50" cy="70" r="2" fill="#451a03" opacity="0.5"/>
+    <circle cx="55" cy="82" r="2" fill="#451a03" opacity="0.5"/>
+  </g>
+</svg>

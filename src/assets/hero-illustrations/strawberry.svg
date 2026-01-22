@@ -1,0 +1,21 @@
+<svg width="70" height="80" viewBox="0 0 70 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Strawberry plant with fruit -->
+  <!-- License: Created for Novobhumi project, free to use -->
+  <g opacity="0.3">
+    <!-- Stem -->
+    <path d="M35 75 L35 45" stroke="#15803d" stroke-width="2" fill="none"/>
+    <!-- Leaves -->
+    <path d="M35 48 Q22 45 18 48 Q22 52 35 50" fill="#16a34a"/>
+    <path d="M35 52 Q48 49 52 52 Q48 56 35 54" fill="#16a34a"/>
+    <!-- Strawberry -->
+    <ellipse cx="48" cy="65" rx="10" ry="12" fill="#dc2626"/>
+    <!-- Seeds -->
+    <circle cx="45" cy="62" r="1" fill="#fef08a"/>
+    <circle cx="50" cy="64" r="1" fill="#fef08a"/>
+    <circle cx="48" cy="68" r="1" fill="#fef08a"/>
+    <circle cx="46" cy="66" r="1" fill="#fef08a"/>
+    <!-- Strawberry top -->
+    <path d="M48 53 L45 58 L51 58 Z" fill="#15803d"/>
+    <circle cx="48" cy="53" r="2" fill="#16a34a"/>
+  </g>
+</svg>

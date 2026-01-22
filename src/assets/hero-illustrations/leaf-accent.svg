@@ -1,0 +1,9 @@
+<svg width="60" height="70" viewBox="0 0 60 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Decorative leaf accent -->
+  <!-- License: Created for Novobhumi project, free to use -->
+  <g opacity="0.25">
+    <path d="M30 65 Q30 40 15 20 Q20 25 25 35 Q28 45 30 65" fill="#16a34a"/>
+    <path d="M30 65 Q30 40 45 20 Q40 25 35 35 Q32 45 30 65" fill="#22c55e"/>
+    <path d="M30 10 L30 65" stroke="#15803d" stroke-width="2"/>
+  </g>
+</svg>

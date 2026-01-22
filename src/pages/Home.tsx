@@ -1,16 +1,16 @@
-import Hero from "../components/Hero";
-import Benefits from "../components/Benefits";
-import Comparison from "../components/Comparison";
-import Testimonials from "../components/Testimonials";
-import Products from "../components/Products";
-import CallToAction from "../components/CallToAction";
-import ComingSoon from "../components/ComingSoon";
+import Hero from "../components/sections/Hero";
+import BenefitsSection from "../components/sections/BenefitsSection";
+import Comparison from "../components/sections/Comparison";
+import Testimonials from "../components/sections/Testimonials";
+import Products from "../components/sections/Products";
+import CallToAction from "../components/sections/CallToAction";
+import ComingSoon from "../components/sections/ComingSoon";
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <Benefits />
+      <BenefitsSection />
       <Comparison />
       <Products />
       <Testimonials />
