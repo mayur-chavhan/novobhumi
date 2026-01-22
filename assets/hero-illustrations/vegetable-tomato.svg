@@ -1,0 +1,14 @@
+<svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Tomato plant with fruit -->
+  <!-- License: Created for Novobhumi project, free to use -->
+  <g opacity="0.3">
+    <!-- Stem -->
+    <path d="M40 90 L40 40" stroke="#15803d" stroke-width="3" fill="none"/>
+    <!-- Leaves -->
+    <path d="M40 50 Q25 45 20 50 Q25 55 40 52" fill="#16a34a"/>
+    <path d="M40 60 Q55 55 60 60 Q55 65 40 62" fill="#16a34a"/>
+    <!-- Tomato -->
+    <circle cx="55" cy="75" r="12" fill="#dc2626"/>
+    <path d="M55 63 L52 68 L58 68 Z" fill="#15803d"/>
+  </g>
+</svg>

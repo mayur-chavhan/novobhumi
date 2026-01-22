@@ -1,0 +1,20 @@
+<svg width="85" height="95" viewBox="0 0 85 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Herb pot with basil/herbs -->
+  <!-- License: Created for Novobhumi project, free to use -->
+  <g opacity="0.3">
+    <!-- Pot -->
+    <path d="M25 60 L20 85 Q20 90 25 90 L60 90 Q65 90 65 85 L60 60 Z" fill="#92400e"/>
+    <ellipse cx="42.5" cy="60" rx="20" ry="5" fill="#78350f"/>
+    <!-- Multiple herb stems -->
+    <rect x="35" y="35" width="2" height="30" fill="#15803d"/>
+    <rect x="42" y="30" width="2" height="35" fill="#15803d"/>
+    <rect x="48" y="32" width="2" height="33" fill="#15803d"/>
+    <!-- Leaves clusters -->
+    <ellipse cx="33" cy="38" rx="4" ry="3" fill="#16a34a"/>
+    <ellipse cx="37" cy="36" rx="4" ry="3" fill="#22c55e"/>
+    <ellipse cx="40" cy="28" rx="5" ry="3" fill="#16a34a"/>
+    <ellipse cx="44" cy="26" rx="5" ry="4" fill="#22c55e"/>
+    <ellipse cx="46" cy="34" rx="4" ry="3" fill="#16a34a"/>
+    <ellipse cx="50" cy="32" rx="5" ry="3" fill="#22c55e"/>
+  </g>
+</svg>

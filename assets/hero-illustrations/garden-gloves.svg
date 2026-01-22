@@ -1,0 +1,16 @@
+<svg width="90" height="70" viewBox="0 0 90 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Garden gloves pair -->
+  <g opacity="0.3">
+    <!-- Left glove -->
+    <path d="M20 40 L15 55 Q15 60 20 60 L30 60 Q32 58 32 55 L28 40 Z" fill="#16a34a"/>
+    <rect x="18" y="38" width="10" height="5" rx="2" fill="#15803d"/>
+    <!-- Right glove -->
+    <path d="M60 40 L55 55 Q55 60 60 60 L70 60 Q72 58 72 55 L68 40 Z" fill="#16a34a"/>
+    <rect x="58" y="38" width="10" height="5" rx="2" fill="#15803d"/>
+    <!-- Fingers detail -->
+    <line x1="22" y1="42" x2="20" y2="55" stroke="#22c55e" stroke-width="1"/>
+    <line x1="26" y1="42" x2="24" y2="55" stroke="#22c55e" stroke-width="1"/>
+    <line x1="62" y1="42" x2="60" y2="55" stroke="#22c55e" stroke-width="1"/>
+    <line x1="66" y1="42" x2="64" y2="55" stroke="#22c55e" stroke-width="1"/>
+  </g>
+</svg>

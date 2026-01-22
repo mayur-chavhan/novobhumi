@@ -1,0 +1,326 @@
+Here's an enhanced and comprehensive version of your prompt that will help your AI agent understand the task much better:
+
+***
+
+## **Project Requirements: Docker Compose Setup, CI/CD Pipeline, and Professional Documentation**
+
+### **Objective**
+Transform the existing project into a production-ready application with organized architecture, automated deployment pipelines, and professional documentation. [docs.docker](https://docs.docker.com/compose/how-tos/production/)
+
+***
+
+### **1. Docker Compose Implementation**
+
+#### **1.1 Production Docker Compose Stack (`docker-compose.yml`)**
+Create a production-ready Docker Compose configuration with the following requirements:
+- **Multi-container orchestration** for all application services (web server, database, cache, etc.)
+- **Environment-specific configurations** using `.env` files (never hardcode secrets)
+- **Health checks** for all critical services to ensure reliability
+- **Resource limits** (CPU, memory) to prevent resource exhaustion
+- **Named volumes** for persistent data storage
+- **Network isolation** with custom bridge networks for inter-service communication
+- **Restart policies** (`restart: unless-stopped` or `restart: always`)
+- **Logging configuration** with proper log drivers and rotation
+- **Production optimizations**: multi-stage builds, minimal base images, non-root users [bunnyshell](https://www.bunnyshell.com/blog/is-docker-compose-production-ready/)
+
+#### **1.2 Development Docker Compose Stack (`docker-compose.dev.yml`)**
+Create a development-focused override configuration with:
+- **Hot-reload/live-reload** capabilities using volume mounts for source code
+- **Development tools** (debuggers, linters, testing frameworks)
+- **Exposed ports** for debugging and development tools
+- **Verbose logging** for easier troubleshooting
+- **Database seeding** scripts for local development
+- **Override mechanism** that extends the base `docker-compose.yml` using the `-f` flag
+- **Fast rebuild capabilities** without compromising development experience [release](https://release.com/blog/6-docker-compose-best-practices-for-dev-and-prod)
+
+**Example usage:**
+```bash
+# Production
+docker-compose up -d
+
+# Development
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+```
+
+***
+
+### **2. Project Architecture & Folder Structure**
+
+Reorganize the project with a **clean, scalable architecture** that minimizes root-level clutter:
+
+```
+project-root/
+├── .github/
+│   └── workflows/          # CI/CD pipeline files
+│       ├── ci.yml          # Continuous Integration
+│       └── cd.yml          # Continuous Deployment
+├── docs/
+│   ├── architecture.md     # System architecture diagrams
+│   ├── api-docs.md         # API documentation
+│   ├── deployment.md       # Deployment guide
+│   └── contributing.md     # Contribution guidelines
+├── scripts/
+│   ├── setup.sh            # Initial setup script
+│   ├── deploy.sh           # Deployment script
+│   ├── backup.sh           # Database backup script
+│   └── test.sh             # Testing script
+├── src/                    # Application source code
+│   ├── frontend/
+│   ├── backend/
+│   └── shared/
+├── config/                 # Configuration files
+│   ├── nginx/
+│   ├── database/
+│   └── monitoring/
+├── tests/                  # Test suites
+│   ├── unit/
+│   ├── integration/
+│   └── e2e/
+├── infrastructure/         # Infrastructure as Code
+│   └── docker/
+│       ├── Dockerfile.prod
+│       └── Dockerfile.dev
+├── .env.example            # Environment variables template
+├── .gitignore
+├── docker-compose.yml      # Production compose file
+├── docker-compose.dev.yml  # Development compose file
+├── README.md               # Professional documentation
+└── LICENSE
+```
+
+**Requirements:**
+- **Maximum 10 files** at root level (keep it clean)
+- All scripts in `/scripts` directory
+- All documentation in `/docs` directory
+- Dockerfiles in `/infrastructure/docker/`
+- Clear separation of concerns [cubettech](https://cubettech.com/resources/blog/the-essential-readme-file-elevating-your-project-with-a-comprehensive-document/)
+
+***
+
+### **3. CI/CD Pipeline Architecture**
+
+#### **3.1 GitHub Actions Workflow Requirements**
+
+**Continuous Integration Pipeline (`ci.yml`):**
+- **Trigger:** On push to `main`, `develop`, and all pull requests
+- **Jobs:**
+  1. **Code Quality Checks**
+     - Linting (ESLint, Prettier, etc.)
+     - Code formatting validation
+     - Security vulnerability scanning (Snyk, Trivy)
+  
+  2. **Automated Testing**
+     - Run unit tests with coverage reports
+     - Run integration tests
+     - Generate test coverage badges
+  
+  3. **Docker Build & Test**
+     - Build Docker images for all services
+     - Run container security scans
+     - Test container startup and health checks
+     - Cache Docker layers for faster builds [aahil13.hashnode](https://aahil13.hashnode.dev/how-to-build-a-cicd-pipeline-using-github-actions)
+
+**Continuous Deployment Pipeline (`cd.yml`):**
+- **Trigger:** On successful merge to `main` branch (production) or `develop` (staging)
+- **Jobs:**
+  1. **Build Docker Images**
+     - Build multi-platform images (linux/amd64, linux/arm64)
+     - Tag with version numbers and commit SHA
+     - Optimize image size and layers
+  
+  2. **Push to Docker Hub (Private)**
+     - Authenticate using Docker Hub credentials stored in GitHub Secrets
+     - Push images to private Docker Hub repository
+     - Tag with semantic versioning (e.g., `v1.2.3`, `latest`)
+  
+  3. **Deployment**
+     - Deploy to staging environment (from `develop`)
+     - Deploy to production environment (from `main`)
+     - Run smoke tests after deployment
+     - Rollback mechanism on failure
+
+#### **3.2 GitHub Secrets Configuration**
+Document the following required secrets:
+- `DOCKERHUB_USERNAME`: Docker Hub username
+- `DOCKERHUB_TOKEN`: Docker Hub access token (not password)
+- `DEPLOY_SSH_KEY`: SSH key for deployment servers (if applicable)
+- Other environment-specific secrets [runcloud](https://runcloud.io/blog/setup-docker-github-actions-ci-cd)
+
+#### **3.3 Architecture Diagram**
+Create a visual CI/CD flow diagram showing:
+- Code commit → GitHub → CI pipeline → Tests → Docker build
+- Successful build → Push to Docker Hub → Deploy to environment
+- Failure points and rollback strategies
+
+***
+
+### **4. Professional README.md**
+
+Create a **comprehensive, professional README** with the following sections: [playbook.platformdev.amdigital.co](https://playbook.platformdev.amdigital.co.uk/Ways-of-Working/Toolkit/Repo-Readmes/)
+
+#### **Required Sections:**
+
+1. **Project Title & Badges**
+   - Build status badge
+   - Test coverage badge
+   - License badge
+   - Docker pulls badge
+
+2. **Overview**
+   - Brief description (2-3 sentences)
+   - Key features (bullet points)
+   - Live demo link (if applicable)
+
+3. **Table of Contents**
+   - Quick navigation links
+
+4. **Built With**
+   - Technology stack (Node.js, React, PostgreSQL, etc.)
+   - Major frameworks and libraries
+   - Infrastructure tools (Docker, GitHub Actions)
+
+5. **Architecture**
+   - High-level system architecture diagram (using Mermaid.js)
+   - Component interaction flowcharts
+   - Database schema overview
+
+6. **Prerequisites**
+   - Required software (Docker, Docker Compose, Node.js versions)
+   - System requirements
+
+7. **Getting Started**
+   - Clone repository
+   - Environment setup (copy `.env.example` to `.env`)
+   - **Development mode:** Step-by-step commands
+   - **Production mode:** Deployment instructions
+
+8. **Usage**
+   - How to access the application
+   - API endpoints documentation (link to `/docs/api-docs.md`)
+   - Example requests/responses
+
+9. **Development**
+   - Running tests (`npm test`, `docker-compose -f docker-compose.test.yml up`)
+   - Code style guidelines
+   - Hot reload setup
+   - Debugging instructions
+
+10. **Deployment**
+    - Manual deployment steps
+    - CI/CD pipeline explanation
+    - Environment variables reference
+
+11. **Project Structure**
+    - Directory tree with explanations
+
+12. **Contributing**
+    - Link to `CONTRIBUTING.md`
+    - Pull request process
+    - Code of conduct
+
+13. **Testing**
+    - How to run unit tests
+    - How to run integration tests
+    - Coverage reports
+
+14. **CI/CD Pipeline**
+    - Pipeline architecture diagram
+    - How to view build logs
+    - Deployment workflow
+
+15. **Troubleshooting**
+    - Common issues and solutions
+    - Docker debugging tips
+
+16. **License**
+    - License type and link
+
+17. **Contact & Support**
+    - Maintainer information
+    - How to report issues
+
+***
+
+### **5. Additional Deliverables**
+
+1. **`.env.example`** - Template with all required environment variables (no secrets)
+2. **`CONTRIBUTING.md`** - Detailed contribution guidelines
+3. **`CHANGELOG.md`** - Version history using semantic versioning
+4. **`.dockerignore`** - Exclude unnecessary files from Docker builds
+5. **Makefile** (optional) - Common commands like `make build`, `make test`, `make deploy`
+
+***
+
+### **6. Quality Standards**
+
+- ✅ All Docker images must be **security-scanned** (no critical vulnerabilities)
+- ✅ **Zero secrets** in repository (use environment variables)
+- ✅ **Health checks** for all services
+- ✅ **Automated tests** with >80% code coverage
+- ✅ **Documentation** must be clear enough for a junior developer to deploy
+- ✅ **CI/CD pipeline** must complete in <10 minutes
+- ✅ **Docker images** should be optimized (<500MB when possible)
+
+***
+
+### **7. Success Criteria**
+
+The implementation is complete when:
+1. ✅ Developer can run `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up` and start developing immediately
+2. ✅ Production stack can be deployed with `docker-compose up -d` without errors
+3. ✅ Every push to `main` triggers automated build, test, and deployment
+4. ✅ Docker images are successfully pushed to private Docker Hub repository
+5. ✅ README is comprehensive enough that a new team member can onboard in <1 hour
+6. ✅ Root directory contains ≤10 files
+7. ✅ All documentation is organized in `/docs` directory
+8. ✅ CI/CD pipeline passes all checks and deploys automatically
+
+***
+
+🧠 **Additional Enhancements to Consider:**
+
+**Monitoring & Observability:**
+- Add Prometheus and Grafana services for metrics monitoring
+- Implement centralized logging with ELK stack (Elasticsearch, Logstash, Kibana) or Loki
+- Set up alerting for critical failures (Slack/Discord webhooks)
+
+**Security Best Practices:**
+- Implement Docker secrets management instead of environment variables for sensitive data
+- Add OWASP dependency checking in CI pipeline
+- Use read-only root filesystem where possible
+- Implement network policies to restrict inter-service communication
+- Add rate limiting and DDoS protection at the reverse proxy level
+
+**Performance Optimizations:**
+- Multi-stage Docker builds to reduce image size by 60-80%
+- Layer caching strategy in CI/CD pipeline to reduce build time
+- CDN integration for static assets
+- Database connection pooling configuration
+- Redis caching layer for frequently accessed data
+
+**Advanced Docker Compose Features:**
+- Health check dependencies (wait for database to be ready before starting app)
+- Graceful shutdown handling with proper signal handling
+- Auto-scaling configurations (when transitioning to Kubernetes)
+- Backup and restore automation scripts
+
+**Developer Experience:**
+- VS Code dev container configuration for consistent development environment
+- Pre-commit hooks for automated code formatting and linting
+- Database seeding scripts with sample data
+- Mock services for external API dependencies during development
+
+**Testing Infrastructure:**
+- Separate `docker-compose.test.yml` for running E2E tests in isolation
+- Integration with code coverage services (Codecov, Coveralls)
+- Visual regression testing for frontend changes
+- Performance benchmarking in CI pipeline
+
+**Documentation Enhancements:**
+- Architecture decision records (ADRs) in `/docs/decisions/`
+- API documentation with Swagger/OpenAPI spec
+- Database migration guides
+- Runbook for production incidents
+- Mermaid.js diagrams for visual architecture representation
+
+This comprehensive approach ensures your project is enterprise-ready with professional DevOps practices, maintainable architecture, and excellent developer experience.

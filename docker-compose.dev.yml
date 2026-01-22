@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.frontend
+      target: builder
+    container_name: novobhumi-frontend-dev
+    command: npm run dev -- --host 0.0.0.0 --port 5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://localhost:3001
+    depends_on:
+      - backend
+    networks:
+      - novobhumi-network-dev
+    stdin_open: true
+    tty: true
+
+  backend:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.backend
+      target: builder
+    container_name: novobhumi-backend-dev
+    command: npm run dev
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - DATABASE_URL=mysql://novobhumi:devpassword@database:3306/novobhumi
+      - SESSION_SECRET=dev-secret-key-change-in-production
+      - ADMIN_EMAIL=admin@novobhumi.com
+      - ADMIN_PASSWORD=admin123
+      - FRONTEND_URL=http://localhost:5000
+    depends_on:
+      database:
+        condition: service_healthy
+    networks:
+      - novobhumi-network-dev
+    stdin_open: true
+    tty: true
+
+  database:
+    image: mysql:8.0
+    container_name: novobhumi-db-dev
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=novobhumi
+      - MYSQL_USER=novobhumi
+      - MYSQL_PASSWORD=devpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data-dev:/var/lib/mysql
+      - ./config/database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - novobhumi-network-dev
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    command: --default-authentication-plugin=mysql_native_password
+
+  adminer:
+    image: adminer:latest
+    container_name: novobhumi-adminer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    networks:
+      - novobhumi-network-dev
+
+networks:
+  novobhumi-network-dev:
+    driver: bridge
+
+volumes:
+  mysql-data-dev:
+    driver: local

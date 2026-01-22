@@ -1,0 +1,17 @@
+<svg width="110" height="90" viewBox="0 0 110 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wheelbarrow -->
+  <g opacity="0.3">
+    <!-- Wheel -->
+    <circle cx="35" cy="70" r="15" fill="#57534e"/>
+    <circle cx="35" cy="70" r="10" fill="#78716c"/>
+    <circle cx="35" cy="70" r="5" fill="#a8a29e"/>
+    <!-- Barrow body -->
+    <path d="M35 55 L25 40 L70 35 L80 50 L35 55 Z" fill="#dc2626"/>
+    <path d="M35 55 L28 42 L70 37 L78 50 L35 55 Z" fill="#ef4444"/>
+    <!-- Handles -->
+    <line x1="70" y1="35" x2="85" y2="20" stroke="#78350f" stroke-width="4"/>
+    <line x1="80" y1="50" x2="95" y2="35" stroke="#78350f" stroke-width="4"/>
+    <!-- Soil/compost in barrow -->
+    <ellipse cx="55" cy="43" rx="18" ry="6" fill="#92400e" opacity="0.7"/>
+  </g>
+</svg>
