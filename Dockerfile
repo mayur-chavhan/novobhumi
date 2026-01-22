@@ -14,14 +14,17 @@ FROM node:20-alpine AS production
 
 WORKDIR /app
 
-# Copy package files and install only vite for preview
+# Copy package files and install production dependencies + vite
 COPY package*.json ./
-RUN npm ci --omit=dev && npm cache clean --force
+RUN npm ci --omit=dev && \
+    npm install vite@^7.2.2 && \
+    npm cache clean --force
 
-# Copy built assets
+# Copy built assets and required config files
 COPY --from=builder /app/dist ./dist
 COPY vite.config.ts ./
 COPY index.html ./
+COPY tsconfig*.json ./
 
 # Create non-root user
 RUN addgroup -g 1001 -S appgroup && \
