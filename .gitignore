@@ -9,6 +9,14 @@ dist
 .env.local
 .env.*.local
 
+# AI coding tool directories
+.claude/
+.opencode/
+.serena/
+
+# Cloudflare/local tool state
+.wrangler/
+
 # Logs
 *.log
 
