@@ -19,6 +19,8 @@ export default defineConfig({
       'www.novobhumi.com',
       'localhost',
       '127.0.0.1',
+      'my-websites-novobhumi.mabiow.legacy-platform.host',
+      '.legacy-platform.host',
     ],
   },
 })

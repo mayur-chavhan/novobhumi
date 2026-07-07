@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,17 +6,44 @@
 
 @layer base {
   body {
-    @apply font-sans antialiased;
+    @apply font-sans antialiased bg-cream text-soil-800;
+  }
+
+  ::selection {
+    @apply bg-primary-200 text-soil-900;
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-700 to-earth-600;
   }
 
   .bg-gradient-earth {
-    @apply bg-gradient-to-br from-earth-50 via-primary-50 to-earth-100;
+    @apply bg-cream;
+  }
+
+  /* Coir-fiber grain: subtle turbulence noise, sits on top of section colors.
+     Hosts must be positioned (relative/sticky) themselves — this rule must not
+     set position, or it would override Tailwind's .sticky at equal specificity. */
+  .texture-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Diagonal coir-fiber strands for brown/dark sections */
+  .texture-fibers {
+    background-image: repeating-linear-gradient(
+      115deg,
+      rgba(214, 186, 146, 0.05) 0px,
+      rgba(214, 186, 146, 0.05) 1px,
+      transparent 1px,
+      transparent 9px
+    );
   }
 
   .animate-marquee {
