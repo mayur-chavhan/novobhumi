@@ -5,14 +5,14 @@
 **Premium Cocopeat Products for Indian Gardeners**
 
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescript-lang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Modern, high-performance static website built for speed, SEO, and mobile-first experience.
 
-[Live Demo](#) · [Report Bug](#) · [Request Feature](#)
+[Live Demo](https://novobhumi.pages.dev) · [Report Bug](https://github.com/mayur-chavhan/novobhumi/issues) · [Request Feature](https://github.com/mayur-chavhan/novobhumi/issues)
 
 </div>
 
@@ -23,7 +23,6 @@ Modern, high-performance static website built for speed, SEO, and mobile-first e
 - [Features](#-features)
 - [Quick Start](#-quick-start)
 - [Development](#-development)
-- [Docker Setup](#-docker-setup)
 - [Project Structure](#-project-structure)
 - [Configuration](#-configuration)
 - [Analytics Setup](#-analytics-setup)
@@ -55,6 +54,7 @@ Modern, high-performance static website built for speed, SEO, and mobile-first e
 ### 🔍 **SEO & Analytics Ready**
 - Comprehensive meta tags (Open Graph, Twitter Cards)
 - Structured data (JSON-LD) for rich snippets
+- Per-page titles, descriptions, and canonical URLs
 - Google Analytics 4, GTM, Search Console
 - Microsoft Clarity, Hotjar, Facebook Pixel
 - robots.txt and sitemap.xml included
@@ -71,7 +71,6 @@ Modern, high-performance static website built for speed, SEO, and mobile-first e
 - Component-based architecture
 - Centralized constants and types
 - Custom hooks for mobile detection
-- Docker support for consistent environments
 
 ---
 
@@ -81,13 +80,12 @@ Modern, high-performance static website built for speed, SEO, and mobile-first e
 
 - **Node.js** >= 18.x
 - **npm** >= 9.x or **yarn** >= 1.22
-- **Docker** (optional, for containerized development)
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/novobhumi.git
+git clone https://github.com/mayur-chavhan/novobhumi.git
 cd novobhumi
 
 # Install dependencies
@@ -140,64 +138,8 @@ Production preview runs at **http://localhost:4173**
 | `make dev` | Start development server |
 | `make build` | Build production bundle |
 | `make preview` | Preview production build |
+| `make lint` | Lint code |
 | `make clean` | Clean dist and node_modules |
-| `make docker-dev` | Start Docker dev environment |
-| `make docker-prod` | Start Docker production |
-| `make docker-stop` | Stop all Docker containers |
-| `make docker-clean` | Stop and remove containers/volumes |
-
----
-
-## 🐳 Docker Setup
-
-### Development Mode
-
-```bash
-# Start development environment
-make docker-dev
-
-# Or using docker-compose directly
-docker-compose -f docker-compose.dev.yaml up
-```
-
-**Access at:** http://localhost:3737  
-**Hot Reload:** Enabled with volume mounts
-
-### Production Mode
-
-```bash
-# Start production environment
-make docker-prod
-
-# Or using docker-compose directly
-docker-compose up
-```
-
-**Access at:** http://localhost:4173  
-**Optimized:** Multi-stage build, minimal image size
-
-### Docker Commands
-
-```bash
-# Stop all containers
-make docker-stop
-
-# Clean up containers, images, and volumes
-make docker-clean
-
-# View logs
-docker-compose logs -f
-
-# Rebuild images
-docker-compose build --no-cache
-```
-
-### Docker Image Details
-
-- **Base Image:** `node:18-alpine`
-- **Build Stage:** Multi-stage for optimal size
-- **Production Server:** Vite preview server
-- **Image Size:** ~150MB (optimized)
 
 ---
 
@@ -207,63 +149,46 @@ docker-compose build --no-cache
 novobhumi/
 ├── .github/                    # GitHub Actions workflows
 │   └── workflows/
-│       ├── docker-publish.yml  # Docker image publishing
 │       └── pr-check.yml        # PR validation
 ├── public/                     # Static assets
 │   ├── favicon.png
 │   ├── robots.txt             # SEO crawler instructions
 │   ├── sitemap.xml            # Site structure
+│   ├── _redirects             # Cloudflare Pages SPA fallback
 │   └── images/                # Public images
 ├── src/
 │   ├── assets/                # Source assets
-│   │   ├── hero-illustrations/ # SVG illustrations (20 files)
+│   │   ├── hero-illustrations/ # SVG illustrations
 │   │   ├── novobhumi-logo.png
 │   │   └── novobhumi-cocopeat-5kg-block.png
 │   ├── components/
 │   │   ├── common/            # Reusable components
-│   │   │   ├── BuyButton.tsx  # Amazon/Shopify CTA
+│   │   │   ├── BuyButton.tsx  # Amazon CTA
 │   │   │   ├── Card.tsx
+│   │   │   ├── SEO.tsx        # Per-page SEO helper
 │   │   │   ├── SectionHeader.tsx
 │   │   │   ├── SectionWrapper.tsx
 │   │   │   ├── StarRating.tsx
 │   │   │   └── index.ts       # Barrel export
+│   │   ├── landing/           # Landing page sections
 │   │   ├── layout/            # Layout components
-│   │   │   ├── Navbar.tsx     # Responsive navigation
+│   │   │   ├── Navbar.tsx
 │   │   │   ├── Footer.tsx
 │   │   │   ├── ScrollToHash.tsx
 │   │   │   └── index.ts
-│   │   └── sections/          # Page sections
-│   │       ├── Hero/          # Hero section subcomponents
-│   │       │   ├── constants.ts
-│   │       │   ├── DecorativeIllustration.tsx
-│   │       │   ├── HeroContent.tsx
-│   │       │   ├── HeroCTAButtons.tsx
-│   │       │   ├── HeroMarquee.tsx
-│   │       │   ├── HeroProductShowcase.tsx
-│   │       │   ├── MarqueeImage.tsx
-│   │       │   ├── ScrollDownButton.tsx
-│   │       │   ├── StatsCard.tsx
-│   │       │   └── index.ts
-│   │       ├── Hero.tsx
-│   │       ├── BenefitsSection.tsx
-│   │       ├── Products.tsx
-│   │       ├── Testimonials.tsx
-│   │       ├── CallToAction.tsx
-│   │       ├── Comparison.tsx
-│   │       ├── ComingSoon.tsx
-│   │       └── index.ts
+│   │   └── ...
 │   ├── constants/             # Static data
-│   │   ├── benefits.ts        # 12 product benefits
-│   │   ├── testimonials.ts    # Customer reviews
-│   │   ├── heroCopy.ts        # Hero text content
-│   │   ├── links.ts           # External links
+│   │   ├── benefits.ts
+│   │   ├── testimonials.ts
+│   │   ├── heroCopy.ts
+│   │   ├── links.ts
 │   │   └── index.ts
 │   ├── context/               # React Context
-│   │   └── ConfigContext.tsx  # Site configuration
+│   │   └── ConfigContext.tsx
 │   ├── hooks/                 # Custom hooks
-│   │   ├── use3DTilt.ts       # 3D tilt effect
+│   │   ├── use3DTilt.ts
 │   │   ├── useMousePosition.ts
-│   │   ├── useMobileOptimizations.ts # Mobile detection
+│   │   ├── useMobileOptimizations.ts
 │   │   └── index.ts
 │   ├── pages/                 # Route pages
 │   │   ├── Home.tsx
@@ -279,30 +204,25 @@ novobhumi/
 │   ├── App.tsx                # Main app component
 │   ├── main.tsx               # Entry point
 │   └── index.css              # Global styles
-├── attached_assets/           # Additional assets
-│   ├── stock_images/          # 15 stock photos
-│   └── generated_videos/      # Product demo video
-├── .dockerignore
 ├── .env.example               # Environment variables template
 ├── .gitignore
-├── Dockerfile                 # Multi-stage Docker build
-├── docker-compose.yaml        # Production Docker config
-├── docker-compose.dev.yaml    # Development Docker config
 ├── index.html                 # HTML template with SEO
 ├── Makefile                   # Build automation
 ├── package.json
 ├── tailwind.config.js         # Tailwind configuration
 ├── tsconfig.json              # TypeScript config
 ├── vite.config.ts             # Vite configuration
+├── wrangler.toml              # Cloudflare Pages config
 └── README.md
 ```
 
 ### Key Directories
 
 - **`src/components/common/`** - Reusable UI components used across pages
-- **`src/components/sections/`** - Large page sections (Hero, Products, etc.)
+- **`src/components/landing/`** - Landing page sections
 - **`src/constants/`** - Centralized data (benefits, testimonials, links)
 - **`src/hooks/`** - Custom React hooks for shared logic
+- **`src/pages/`** - Route-level page components
 - **`src/types/`** - TypeScript type definitions
 
 ---
@@ -386,11 +306,12 @@ All analytics scripts include conditional checks:
 
 ### Meta Tags
 
-- **Title & Description** - Optimized for search engines
+- **Title & Description** - Unique per page via `react-helmet-async`
 - **Keywords** - Relevant gardening terms
 - **Open Graph** - Rich previews on Facebook/LinkedIn
 - **Twitter Cards** - Enhanced Twitter sharing
 - **Geo Tags** - Local SEO targeting India
+- **Canonical URLs** - Prevent duplicate content issues
 
 ### Structured Data (JSON-LD)
 
@@ -399,14 +320,15 @@ All analytics scripts include conditional checks:
 | **Organization** | Company information |
 | **LocalBusiness** | Local SEO with address/contact |
 | **Product** | Product details with reviews |
-| **FAQPage** | Common questions |
+| **FAQPage** | Common questions (on `/faq`) |
+| **BreadcrumbList** | Navigation breadcrumbs |
 | **WebSite** | Site-wide search integration |
 
 ### Additional SEO Files
 
 - **`robots.txt`** - Allows all crawlers, includes AI bots (ChatGPT, Claude, Perplexity)
 - **`sitemap.xml`** - Complete site structure (all pages, priority, change frequency)
-- **Canonical URLs** - Prevent duplicate content issues
+- **`_redirects`** - Cloudflare Pages SPA routing fallback
 
 ---
 
@@ -441,154 +363,33 @@ const {
 
 ## 🚢 Deployment
 
-### Option 1: Docker (Recommended for Production)
+### Cloudflare Pages (Recommended)
 
-**Using Pre-built Image from GitHub Container Registry:**
-
-```bash
-# Pull the latest version
-docker pull ghcr.io/mayur-chavhan/novobhumi:latest
-
-# Run container
-docker run -d \
-  -p 4173:4173 \
-  --name novobhumi \
-  --restart unless-stopped \
-  ghcr.io/mayur-chavhan/novobhumi:latest
-
-# Or use a specific version
-docker pull ghcr.io/mayur-chavhan/novobhumi:1.0.1
-docker run -d -p 4173:4173 ghcr.io/mayur-chavhan/novobhumi:1.0.1
-```
-
-**Building from Source:**
+This project is configured to deploy to **Cloudflare Pages**:
 
 ```bash
-# Build and run production container
-docker build -t novobhumi:latest .
-docker run -d -p 4173:4173 --name novobhumi novobhumi:latest
-
-# View logs
-docker logs novobhumi
-
-# Stop container
-docker stop novobhumi
-```
-
-**Production Deployment with Custom Domain:**
-
-The application is configured to work with the following domains:
-- `novobhumi.com`
-- `www.novobhumi.com`
-- `localhost` (for testing)
-
-If you need to add additional domains, update `vite.config.ts`:
-
-```typescript
-preview: {
-  allowedHosts: [
-    'your-domain.com',
-    'www.your-domain.com',
-    // ... other domains
-  ],
-}
-```
-
-**Reverse Proxy Setup (nginx):**
-
-```nginx
-server {
-    listen 80;
-    server_name novobhumi.com www.novobhumi.com;
-
-    location / {
-        proxy_pass http://localhost:4173;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
-
-### Option 2: Static Hosting (Netlify, Vercel, Cloudflare Pages)
-
-```bash
-# Build static assets
+# Build the static site
 npm run build
 
-# Deploy the 'dist' folder to your hosting provider
+# Deploy with Wrangler
+npx wrangler pages deploy dist --project-name=novobhumi --branch=main
 ```
 
-#### Netlify
+**Build settings for dashboard:**
 
-```toml
-# netlify.toml
-[build]
-  command = "npm run build"
-  publish = "dist"
+| Setting | Value |
+|---------|-------|
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Root directory | `/` |
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-```
+**Custom domain:** `novobhumi.com`
 
-#### Vercel
+Add a `CNAME` record pointing `novobhumi.com` to `novobhumi.pages.dev` in your Cloudflare DNS settings.
 
-```json
-// vercel.json
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-}
-```
+### Alternative Static Hosts
 
-### Option 3: GitHub Container Registry (Automated)
-
-Docker images are automatically built and published on every push to `main` and on version tags.
-
-**Available Tags:**
-- `latest` - Latest stable version from main branch
-- `main` - Latest commit on main branch
-- `1.0.1`, `1.0`, `1` - Semantic version tags
-- `main-<sha>` - Specific commit from main branch
-
-**Pull and Deploy:**
-
-```bash
-# Pull latest stable
-docker pull ghcr.io/mayur-chavhan/novobhumi:latest
-
-# Pull specific version
-docker pull ghcr.io/mayur-chavhan/novobhumi:1.0.1
-
-# Deploy to production
-docker run -d \
-  -p 80:4173 \
-  --name novobhumi-prod \
-  --restart unless-stopped \
-  ghcr.io/mayur-chavhan/novobhumi:1.0.1
-```
-
-**Auto-Update with Watchtower:**
-
-```bash
-# Automatically update to latest version
-docker run -d \
-  --name watchtower \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  containrrr/watchtower \
-  --interval 300 \
-  novobhumi-prod
-```
-
-See [GitHub Actions Workflow](#github-actions) for more details on automated builds.
+The `dist/` folder is a standard Vite static build and can also be deployed to Netlify, Vercel, or any static host.
 
 ---
 
@@ -649,21 +450,12 @@ We follow [Conventional Commits](https://www.conventionalcommits.org/):
 | Technology | Version | Purpose |
 |------------|---------|---------|
 | [React](https://reactjs.org/) | 19.0 | UI framework |
-| [TypeScript](https://www.typescriptlang.org/) | 5.6 | Type safety |
+| [TypeScript](https://www.typescript.org/) | 5.6 | Type safety |
 | [Vite](https://vitejs.dev/) | 7.2 | Build tool |
 | [Tailwind CSS](https://tailwindcss.com/) | 4.0 | Styling |
 | [Framer Motion](https://www.framer.com/motion/) | 11.15 | Animations |
 | [React Router](https://reactrouter.com/) | 7.1 | Routing |
 | [Lucide React](https://lucide.dev/) | 0.468 | Icons |
-
-### DevOps
-
-| Technology | Purpose |
-|------------|---------|
-| Docker | Containerization |
-| GitHub Actions | CI/CD pipelines |
-| GitHub Container Registry | Docker image hosting |
-| Makefile | Build automation |
 
 ### Development Tools
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Package, Droplets, HandMetal, Sprout, RefreshCw, CheckCircle } from "lucide-react";
 import howToUseImage from "/images/how-to-use-cocopeat.png";
+import { SEO } from "../components/common";
 
 const HowToUse = () => {
   const steps = [
@@ -70,17 +71,23 @@ const HowToUse = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            How to Use <span className="text-gradient">Cocopeat</span>
-          </h1>
+    <>
+      <SEO
+        title="How to Use Cocopeat"
+        description="Step-by-step guide to prepare and use Novobhumi 5kg cocopeat brick. Learn to expand, mix with compost, and plant for terrace, balcony, and container gardening in India."
+        path="/how-to-use"
+      />
+      <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              How to Use <span className="text-gradient">Cocopeat</span>
+            </h1>
           <p className="text-xl text-gray-700 leading-relaxed mb-12">
             Step-by-step guide to preparing and using Novobhumi cocopeat
           </p>
@@ -161,6 +168,7 @@ const HowToUse = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sprout, Heart, Target, Award } from "lucide-react";
+import { SEO } from "../components/common";
 
 const AboutUs = () => {
   const values = [
@@ -26,17 +27,23 @@ const AboutUs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            About <span className="text-gradient">Novobhumi</span>
-          </h1>
+    <>
+      <SEO
+        title="About Novobhumi"
+        description="Learn about Novobhumi - India's trusted brand for premium organic cocopeat. Discover our mission to help gardeners grow healthier plants with sustainable, eco-friendly growing mediums."
+        path="/about"
+      />
+      <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              About <span className="text-gradient">Novobhumi</span>
+            </h1>
           <p className="text-xl text-gray-700 leading-relaxed">
             Your trusted partner in sustainable and organic gardening solutions
           </p>
@@ -99,6 +106,7 @@ const AboutUs = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

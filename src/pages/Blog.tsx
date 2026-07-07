@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Calendar, User, ArrowRight } from "lucide-react";
+import { SEO } from "../components/common";
 
 const Blog = () => {
   const blogPosts = [
@@ -54,17 +55,23 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Gardening <span className="text-gradient">Blog</span>
-          </h1>
+    <>
+      <SEO
+        title="Gardening Blog"
+        description="Read expert cocopeat gardening guides, tips, and inspiration for Indian gardeners. Learn about vegetables, sustainability, urban gardening, and seasonal care."
+        path="/blog"
+      />
+      <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              Gardening <span className="text-gradient">Blog</span>
+            </h1>
           <p className="text-xl text-gray-700 leading-relaxed">
             Expert tips, guides, and inspiration for your gardening journey
           </p>
@@ -138,6 +145,7 @@ const Blog = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

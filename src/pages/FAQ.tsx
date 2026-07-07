@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { SEO } from "../components/common";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -56,18 +57,40 @@ const FAQ = () => {
     }
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Frequently Asked <span className="text-gradient">Questions</span>
-          </h1>
+    <>
+      <SEO
+        title="Cocopeat FAQs"
+        description="Get answers to all your cocopeat questions. Learn about preparation, reuse, pH levels, water retention, plant suitability, and storage from Novobhumi experts."
+        path="/faq"
+      />
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
+      <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              Frequently Asked <span className="text-gradient">Questions</span>
+            </h1>
           <p className="text-xl text-gray-700 leading-relaxed">
             Everything you need to know about cocopeat
           </p>
@@ -128,6 +151,7 @@ const FAQ = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 

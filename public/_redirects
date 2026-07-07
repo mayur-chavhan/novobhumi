@@ -1,0 +1,5 @@
+# Cloudflare Pages SPA fallback — serve index.html for all client-side routes.
+# Existing files (assets, images, etc.) still take precedence.
+
+/assets/* /assets/:splat 200
+/* /index.html 200

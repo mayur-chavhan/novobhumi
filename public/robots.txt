@@ -48,9 +48,5 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# Disallow admin and API paths
-Disallow: /mayur-admin
-Disallow: /api/
-
 # Sitemap location
 Sitemap: https://novobhumi.com/sitemap.xml

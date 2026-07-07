@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Leaf, Droplets, Sprout, Heart, TrendingUp, Shield } from 'lucide-react';
+import { SEO } from "../components/common";
 
 const Benefits = () => {
   const benefits = [
@@ -36,18 +37,24 @@ const Benefits = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-          >
-            Why Choose <span className="text-primary-600">Cocopeat</span>?
-          </motion.h1>
+    <>
+      <SEO
+        title="Benefits of Cocopeat"
+        description="Discover why cocopeat is the best growing medium for Indian gardens. Superior water retention, better aeration, pH balanced, reusable, and 100% organic."
+        path="/benefits"
+      />
+      <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+            >
+              Why Choose <span className="text-primary-600">Cocopeat</span>?
+            </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -236,6 +243,7 @@ const Benefits = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

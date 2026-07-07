@@ -11,16 +11,7 @@ export default defineConfig({
   },
   preview: {
     host: '0.0.0.0',
-    port: 80,
+    port: 4173,
     strictPort: false,
-    // Allow all hosts for production deployment behind reverse proxy
-    allowedHosts: [
-      'novobhumi.com',
-      'www.novobhumi.com',
-      'localhost',
-      '127.0.0.1',
-      'my-websites-novobhumi.mabiow.legacy-platform.host',
-      '*.legacy-platform.host',
-    ],
   },
 })

@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
+
   <url>
     <loc>https://novobhumi.com/</loc>
-    <lastmod>2025-11-28</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://novobhumi.com/images/novobhumi-cocopeat-product.png</image:loc>
-      <image:title>Novobhumi Premium Cocopeat</image:title>
-      <image:caption>Premium quality cocopeat for Indian gardening enthusiasts</image:caption>
+      <image:loc>https://novobhumi.com/images/novobhumi-cocopeat-5kg-block.png</image:loc>
+      <image:title>Novobhumi Premium Cocopeat 5kg Block</image:title>
+      <image:caption>Premium quality cocopeat brick that expands to 75 litres of growing medium</image:caption>
     </image:image>
   </url>
-  
+
   <url>
     <loc>https://novobhumi.com/about</loc>
-    <lastmod>2025-11-28</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
     <loc>https://novobhumi.com/benefits</loc>
-    <lastmod>2025-11-28</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
+
   <url>
     <loc>https://novobhumi.com/how-to-use</loc>
-    <lastmod>2025-11-28</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
+
   <url>
-    <loc>https://novobhumi.com/gardening-tips</loc>
-    <lastmod>2025-11-28</lastmod>
+    <loc>https://novobhumi.com/tips</loc>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
     <loc>https://novobhumi.com/faq</loc>
-    <lastmod>2025-11-28</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
+
   <url>
     <loc>https://novobhumi.com/blog</loc>
-    <lastmod>2025-11-28</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
   <url>
     <loc>https://novobhumi.com/contact</loc>
-    <lastmod>2025-11-28</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
 </urlset>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import { useConfig } from "../context/ConfigContext";
+import { SEO } from "../components/common";
 
 const Contact = () => {
   const { settings } = useConfig();
@@ -26,17 +27,23 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Get in <span className="text-gradient">Touch</span>
-          </h1>
+    <>
+      <SEO
+        title="Contact Novobhumi"
+        description="Have questions about Novobhumi cocopeat? Contact our gardening experts in Pune, Maharashtra. Email, phone, or send us a message for personalized gardening support."
+        path="/contact"
+      />
+      <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              Get in <span className="text-gradient">Touch</span>
+            </h1>
           <p className="text-xl text-gray-700 leading-relaxed">
             Have questions? We're here to help you grow your garden
           </p>
@@ -187,6 +194,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

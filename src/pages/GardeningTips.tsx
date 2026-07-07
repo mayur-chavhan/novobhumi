@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Droplets, Sun, Sprout, Bug, Calendar, Thermometer } from "lucide-react";
+import { SEO } from "../components/common";
 
 const GardeningTips = () => {
   const tips = [
@@ -72,17 +73,23 @@ const GardeningTips = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-16"
-        >
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
-            Gardening <span className="text-gradient">Tips</span>
-          </h1>
+    <>
+      <SEO
+        title="Gardening Tips for Indian Climate"
+        description="Expert gardening tips for Indian terrace, balcony, and container gardens. Learn watering, sunlight, pest control, and cocopeat usage for every season."
+        path="/tips"
+      />
+      <div className="min-h-screen bg-gradient-earth pt-32 pb-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center mb-16"
+          >
+            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+              Gardening <span className="text-gradient">Tips</span>
+            </h1>
           <p className="text-xl text-gray-700 leading-relaxed">
             Expert advice to help your garden flourish year-round
           </p>
@@ -130,6 +137,7 @@ const GardeningTips = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };
 
