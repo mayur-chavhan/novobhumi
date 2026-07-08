@@ -15,7 +15,7 @@ const FinalCTA = () => {
       <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6">
         <SproutText
           as="h2"
-          text="Your terrace is waiting."
+          text="Your garden, made by you, is waiting."
           className="font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl"
         />
         <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-earth-200/80">

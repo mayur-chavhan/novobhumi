@@ -5,6 +5,7 @@ import {
   ExpansionDemo,
   UseCasesSection,
   QualityProof,
+  InfographicsSection,
   AmazonReviews,
   FinalCTA,
   StickyBuyBar,
@@ -25,6 +26,7 @@ const Home = () => {
       <ExpansionDemo />
       <UseCasesSection />
       <QualityProof />
+      <InfographicsSection />
       <AmazonReviews />
       <FinalCTA />
       <StickyBuyBar />

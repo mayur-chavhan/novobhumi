@@ -32,7 +32,7 @@ const LandingHero = () => {
     <section
       ref={sectionRef}
       id="home"
-      className="texture-grain relative flex min-h-dvh items-center overflow-hidden bg-cream pt-28 sm:pt-32"
+      className="texture-grain relative flex min-h-dvh items-center overflow-hidden bg-cream pt-24 sm:pt-28"
     >
       {/* Blurred leaf bokeh — sunlight through a canopy */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -41,7 +41,7 @@ const LandingHero = () => {
         <div className="absolute top-[35%] right-[35%] h-40 w-40 rounded-full bg-primary-100/60 blur-2xl" />
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 pb-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-6 px-4 pb-16 sm:px-6 sm:pb-20 lg:grid-cols-2 lg:items-center lg:gap-8 lg:px-8">
         {/* Intro — headline + lead copy, always first */}
         <motion.div
           style={shouldReduceMotion ? undefined : { opacity: contentOpacity }}
@@ -97,24 +97,21 @@ const LandingHero = () => {
               className="relative z-10 mx-auto w-full drop-shadow-2xl"
             />
 
-            {/* Floating stat chips */}
+            {/* Product stats — placed below the image so the brick stays fully visible */}
             <motion.div
-              initial={{ opacity: 0, x: -14 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute left-0 top-16 z-20 rounded-2xl border border-earth-200 bg-white/90 px-4 py-3 shadow-soft backdrop-blur-sm"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              className="relative z-20 mt-4 flex justify-center gap-3 sm:gap-4"
             >
-              <p className="font-display text-2xl font-semibold text-earth-700">5 kg</p>
-              <p className="text-xs font-medium uppercase tracking-wide text-soil-600">compressed brick</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 14 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.95 }}
-              className="absolute bottom-10 right-0 z-20 rounded-2xl border border-primary-200 bg-white/90 px-4 py-3 shadow-soft backdrop-blur-sm"
-            >
-              <p className="font-display text-2xl font-semibold text-primary-700">75 L</p>
-              <p className="text-xs font-medium uppercase tracking-wide text-soil-600">after soaking</p>
+              <div className="rounded-2xl border border-earth-200 bg-white/90 px-4 py-2.5 shadow-soft backdrop-blur-sm">
+                <p className="font-display text-xl font-semibold text-earth-700">5 kg</p>
+                <p className="text-xs font-medium uppercase tracking-wide text-soil-600">compressed brick</p>
+              </div>
+              <div className="rounded-2xl border border-primary-200 bg-white/90 px-4 py-2.5 shadow-soft backdrop-blur-sm">
+                <p className="font-display text-xl font-semibold text-primary-700">75 L</p>
+                <p className="text-xs font-medium uppercase tracking-wide text-soil-600">after soaking</p>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -128,12 +125,17 @@ const LandingHero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="flex flex-wrap items-center gap-4"
+            className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <BuyButton href={AMAZON_AFFILIATE_LINK} size="lg" label="Buy on Amazon" />
+            <BuyButton
+              href={AMAZON_AFFILIATE_LINK}
+              size="lg"
+              label="Buy on Amazon"
+              className="w-full justify-center sm:w-auto"
+            />
             <a
               href="#expansion"
-              className="inline-flex min-h-[44px] items-center gap-2 rounded-full px-5 py-3 font-semibold text-earth-700 transition-colors duration-200 hover:bg-earth-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-earth-500"
+              className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-5 py-3 font-semibold text-earth-700 transition-colors duration-200 hover:bg-earth-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-earth-500 sm:w-auto"
             >
               See the expansion
               <ArrowDown size={18} aria-hidden="true" />
@@ -144,7 +146,7 @@ const LandingHero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.55 }}
-            className="mt-7 flex items-center gap-2 text-sm text-soil-600"
+            className="mt-5 flex items-center gap-2 text-sm text-soil-600 sm:mt-6"
           >
             <span className="flex" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -161,7 +163,7 @@ const LandingHero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.65 }}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-5 flex flex-wrap gap-3 sm:mt-6"
           >
             {trustBadges.map(({ icon: Icon, label }) => (
               <li

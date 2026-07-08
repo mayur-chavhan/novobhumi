@@ -6,6 +6,7 @@ export { default as UseCasesSection } from "./UseCasesSection";
 export { default as QualityProof } from "./QualityProof";
 export { default as AmazonReviews } from "./AmazonReviews";
 export { default as FinalCTA } from "./FinalCTA";
+export { default as InfographicsSection } from "./InfographicsSection";
 export { default as StickyBuyBar } from "./StickyBuyBar";
 export { SproutText } from "./SproutText";
 export { CountUp } from "./CountUp";
