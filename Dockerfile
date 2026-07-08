@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy dependency manifests first for better layer caching
 COPY package*.json ./
-RUN npm ci --prefer-offline --no-audit
+RUN npm ci --include=dev --prefer-offline --no-audit
 
 # Copy source and build
 COPY . .
